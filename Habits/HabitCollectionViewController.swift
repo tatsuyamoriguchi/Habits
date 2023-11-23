@@ -14,6 +14,15 @@ class HabitCollectionViewController: UICollectionViewController {
     // MVVM approach to separate
     typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section, ViewModel.Item>
     
+    enum SectionHeader: String {
+        case kind = "SectionHeader"
+        case reuse = "HeaderView"
+        
+        var identifier: String {
+            return rawValue
+        }
+    }
+
     // ViewModel Encapsulates everything the collection view needs to display its data.
     // ViewModel has no cases, creating a namespace to enclose the two types of view model objects
     // that will represent the section identifiers and item identifiers for the data source.
@@ -66,6 +75,8 @@ class HabitCollectionViewController: UICollectionViewController {
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
+        
+        collectionView.register(NamedSectionHeaderView.self, forSupplementaryViewOfKind: SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier)
 
     }
     
@@ -137,6 +148,19 @@ class HabitCollectionViewController: UICollectionViewController {
             
             return cell
         }
+        
+        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier, for: indexPath) as! NamedSectionHeaderView
+            
+            let section = dataSource.snapshot().sectionIdentifiers[indexPath.section]
+            switch section {
+            case .favorites:
+                header.nameLabel.text = "Favorites"
+            case .category(let category):
+                header.nameLabel.text = category.name
+            }
+            return header
+        }
         return dataSource
     }
     
@@ -147,13 +171,31 @@ class HabitCollectionViewController: UICollectionViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
 
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(36))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: SectionHeader.kind.identifier, alignment: .top)
+        sectionHeader.pinToVisibleBounds = true
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.boundarySupplementaryItems = [sectionHeader]
         
         return UICollectionViewCompositionalLayout(section: section)
     }
-
-
- 
+    
+    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        // to create a context menu configuration to return from your delegate method, you'll pass an action provider closure that sets up and returns a UIMenu instance to the UIContextMenuConfiguration initializer
+        let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let item = self.dataSource.itemIdentifier(for: indexPath)!
+            
+            let favoriteToggle = UIAction(title: self.model.favoriteHabits.contains(item) ? "Unfavorite" : "Favorite") { (action) in
+                Settings.shared.toggleFavorite(item)
+                self.updateCollectionView()
+            }
+            return UIMenu(title: "", image: nil, identifier: nil, options: [], children: [favoriteToggle])
+        }
+        
+        return config
+    }
 
 }

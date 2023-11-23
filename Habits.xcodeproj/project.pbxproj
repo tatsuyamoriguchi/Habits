@@ -64,8 +64,6 @@
 		8CB708272B0A992D00F2262C = {
 			isa = PBXGroup;
 			children = (
-				8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */,
-				8CB708592B0BF36100F2262C /* APIService.swift */,
 				8CB708322B0A992D00F2262C /* Habits */,
 				8CB708312B0A992D00F2262C /* Products */,
 			);
@@ -88,6 +86,8 @@
 				8CB7083C2B0A992E00F2262C /* Assets.xcassets */,
 				8CB7083E2B0A992E00F2262C /* LaunchScreen.storyboard */,
 				8CB708412B0A992E00F2262C /* Info.plist */,
+				8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */,
+				8CB708592B0BF36100F2262C /* APIService.swift */,
 				8CB708472B0BD5DD00F2262C /* HomeCollectionViewController.swift */,
 				8CB708492B0BD5F400F2262C /* HabitCollectionViewController.swift */,
 				8CB7084B2B0BD60700F2262C /* UserCollectionViewController.swift */,

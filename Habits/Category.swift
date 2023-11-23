@@ -10,6 +10,7 @@ import Foundation
 struct Category {
     let name: String
     let color: Color
+    
 }
 
 extension Category: Codable { }
