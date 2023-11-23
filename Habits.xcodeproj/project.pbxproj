@@ -26,6 +26,8 @@
 		8CD15DE52B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */; };
 		8CD15DE72B0EEFA6003B0F52 /* NamedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */; };
 		8CE9AF662B0FBAA900177E12 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9AF652B0FBAA900177E12 /* User.swift */; };
+		8CE9AF682B1003C700177E12 /* HabitStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9AF672B1003C700177E12 /* HabitStatistics.swift */; };
+		8CE9AF6A2B10057100177E12 /* UserCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9AF692B10057100177E12 /* UserCount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionDiffableDataSource+ViewModel.swift"; sourceTree = "<group>"; };
 		8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeaderView.swift; sourceTree = "<group>"; };
 		8CE9AF652B0FBAA900177E12 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8CE9AF672B1003C700177E12 /* HabitStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStatistics.swift; sourceTree = "<group>"; };
+		8CE9AF692B10057100177E12 /* UserCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				8CD15DE22B0D2F8C003B0F52 /* Settings.swift */,
 				8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */,
 				8CE9AF652B0FBAA900177E12 /* User.swift */,
+				8CE9AF672B1003C700177E12 /* HabitStatistics.swift */,
+				8CE9AF692B10057100177E12 /* UserCount.swift */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -188,10 +194,12 @@
 				8CB7084E2B0BD61700F2262C /* LogHabitCollectionViewController.swift in Sources */,
 				8CD15DE72B0EEFA6003B0F52 /* NamedSectionHeaderView.swift in Sources */,
 				8CB708582B0BE3BC00F2262C /* APIRequest.swift in Sources */,
+				8CE9AF682B1003C700177E12 /* HabitStatistics.swift in Sources */,
 				8CB708542B0BDD2600F2262C /* Habit.swift in Sources */,
 				8CB7085C2B0BF61F00F2262C /* Category.swift in Sources */,
 				8CB708502B0BD7C400F2262C /* HabitDetailViewController.swift in Sources */,
 				8CB7085A2B0BF36200F2262C /* APIService.swift in Sources */,
+				8CE9AF6A2B10057100177E12 /* UserCount.swift in Sources */,
 				8CB708362B0A992D00F2262C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
