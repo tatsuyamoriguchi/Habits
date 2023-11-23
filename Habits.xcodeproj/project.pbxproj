@@ -18,6 +18,13 @@
 		8CB7084E2B0BD61700F2262C /* LogHabitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7084D2B0BD61700F2262C /* LogHabitCollectionViewController.swift */; };
 		8CB708502B0BD7C400F2262C /* HabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7084F2B0BD7C400F2262C /* HabitDetailViewController.swift */; };
 		8CB708522B0BD7D500F2262C /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB708512B0BD7D500F2262C /* UserDetailViewController.swift */; };
+		8CB708542B0BDD2600F2262C /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB708532B0BDD2600F2262C /* Habit.swift */; };
+		8CB708582B0BE3BC00F2262C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB708572B0BE3BC00F2262C /* APIRequest.swift */; };
+		8CB7085A2B0BF36200F2262C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB708592B0BF36100F2262C /* APIService.swift */; };
+		8CB7085C2B0BF61F00F2262C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7085B2B0BF61F00F2262C /* Category.swift */; };
+		8CD15DE32B0D2F8C003B0F52 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE22B0D2F8C003B0F52 /* Settings.swift */; };
+		8CD15DE52B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */; };
+		8CD15DE72B0EEFA6003B0F52 /* NamedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +41,13 @@
 		8CB7084D2B0BD61700F2262C /* LogHabitCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogHabitCollectionViewController.swift; sourceTree = "<group>"; };
 		8CB7084F2B0BD7C400F2262C /* HabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailViewController.swift; sourceTree = "<group>"; };
 		8CB708512B0BD7D500F2262C /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		8CB708532B0BDD2600F2262C /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		8CB708572B0BE3BC00F2262C /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		8CB708592B0BF36100F2262C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		8CB7085B2B0BF61F00F2262C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8CD15DE22B0D2F8C003B0F52 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionDiffableDataSource+ViewModel.swift"; sourceTree = "<group>"; };
+		8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +64,8 @@
 		8CB708272B0A992D00F2262C = {
 			isa = PBXGroup;
 			children = (
+				8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */,
+				8CB708592B0BF36100F2262C /* APIService.swift */,
 				8CB708322B0A992D00F2262C /* Habits */,
 				8CB708312B0A992D00F2262C /* Products */,
 			);
@@ -78,6 +94,11 @@
 				8CB7084D2B0BD61700F2262C /* LogHabitCollectionViewController.swift */,
 				8CB7084F2B0BD7C400F2262C /* HabitDetailViewController.swift */,
 				8CB708512B0BD7D500F2262C /* UserDetailViewController.swift */,
+				8CB708532B0BDD2600F2262C /* Habit.swift */,
+				8CB708572B0BE3BC00F2262C /* APIRequest.swift */,
+				8CB7085B2B0BF61F00F2262C /* Category.swift */,
+				8CD15DE22B0D2F8C003B0F52 /* Settings.swift */,
+				8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -155,11 +176,18 @@
 			files = (
 				8CB708482B0BD5DD00F2262C /* HomeCollectionViewController.swift in Sources */,
 				8CB7084C2B0BD60700F2262C /* UserCollectionViewController.swift in Sources */,
+				8CD15DE52B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift in Sources */,
+				8CD15DE32B0D2F8C003B0F52 /* Settings.swift in Sources */,
 				8CB708522B0BD7D500F2262C /* UserDetailViewController.swift in Sources */,
 				8CB7084A2B0BD5F400F2262C /* HabitCollectionViewController.swift in Sources */,
 				8CB708342B0A992D00F2262C /* AppDelegate.swift in Sources */,
 				8CB7084E2B0BD61700F2262C /* LogHabitCollectionViewController.swift in Sources */,
+				8CD15DE72B0EEFA6003B0F52 /* NamedSectionHeaderView.swift in Sources */,
+				8CB708582B0BE3BC00F2262C /* APIRequest.swift in Sources */,
+				8CB708542B0BDD2600F2262C /* Habit.swift in Sources */,
+				8CB7085C2B0BF61F00F2262C /* Category.swift in Sources */,
 				8CB708502B0BD7C400F2262C /* HabitDetailViewController.swift in Sources */,
+				8CB7085A2B0BF36200F2262C /* APIService.swift in Sources */,
 				8CB708362B0A992D00F2262C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
