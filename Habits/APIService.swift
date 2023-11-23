@@ -14,3 +14,10 @@ struct HabitRequest: APIRequest {
     var path: String { "/habits" }
     
 }
+
+// Add a new API request to APIService to enable fetching users.
+struct UserRequest: APIRequest {
+    typealias Response = [String: User]
+    
+    var path: String { "/users" }
+}
