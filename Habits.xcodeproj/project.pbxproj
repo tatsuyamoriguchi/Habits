@@ -25,6 +25,7 @@
 		8CD15DE32B0D2F8C003B0F52 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE22B0D2F8C003B0F52 /* Settings.swift */; };
 		8CD15DE52B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */; };
 		8CD15DE72B0EEFA6003B0F52 /* NamedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */; };
+		8CE9AF662B0FBAA900177E12 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9AF652B0FBAA900177E12 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8CD15DE22B0D2F8C003B0F52 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionDiffableDataSource+ViewModel.swift"; sourceTree = "<group>"; };
 		8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeaderView.swift; sourceTree = "<group>"; };
+		8CE9AF652B0FBAA900177E12 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				8CB7085B2B0BF61F00F2262C /* Category.swift */,
 				8CD15DE22B0D2F8C003B0F52 /* Settings.swift */,
 				8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */,
+				8CE9AF652B0FBAA900177E12 /* User.swift */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				8CB7084C2B0BD60700F2262C /* UserCollectionViewController.swift in Sources */,
 				8CD15DE52B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift in Sources */,
 				8CD15DE32B0D2F8C003B0F52 /* Settings.swift in Sources */,
+				8CE9AF662B0FBAA900177E12 /* User.swift in Sources */,
 				8CB708522B0BD7D500F2262C /* UserDetailViewController.swift in Sources */,
 				8CB7084A2B0BD5F400F2262C /* HabitCollectionViewController.swift in Sources */,
 				8CB708342B0A992D00F2262C /* AppDelegate.swift in Sources */,

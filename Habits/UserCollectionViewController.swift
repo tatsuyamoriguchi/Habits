@@ -22,67 +22,42 @@ class UserCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 1
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        // Configure the cell
+//    While you're there, typealias your data source type, create your model type, and add declarations for the data source and model properties.
+    typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section,ViewModel.Item>
     
-        return cell
+    enum ViewModel {
+        typealias Section = Int
+        
+        struct Item: Hashable {
+            let user: User
+            let isFollowed: Bool
+            
+            func hash(into hasher: inout Hasher) {
+                hasher.combine(user)
+            }
+            
+            static func ==(_ lhs: Item, _ rhs: Item) -> Bool {
+                return lhs.user == rhs.user
+            }
+        }
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    struct Model {
+        var userByID = [String:User]()
+        var followedUsers: [User] {
+            return Array(userByID.filter {
+                Settings.shared.followedUserIDs.contains($0.key)
+            }.values)
+        }
     }
-    */
+    
+    var dataSource: DataSourceType!
+    var model = Model()
+    
+//    While you could also just typealias Item to User, you're not maintaining a separate section for followed users in this screen as you did for habits. If you might later want to visually distinguish between followed and unfollowed users, you should include that information in the view model as part of the Item.
+//    Note that you explicitly implemented hash(into:) and ==(_:_:) for the Item struct. (The free implementations of those two methods would have used both properties of Item in their calculations.) You want to make sure that, from the perspective of the collection view's data source, the identity of a user doesn't change when their followed status changes. If it did, your collection view would unnecessarily remove and add a cell.
+
+
 
 }
