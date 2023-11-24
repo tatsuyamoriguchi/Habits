@@ -104,7 +104,7 @@
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="customSize" width="393" height="50"/>
                                 <connections>
-                                    <segue destination="zpv-jK-FbX" kind="show" id="J57-pl-6un"/>
+                                    <segue destination="zpv-jK-FbX" kind="show" destinationCreationSelector="showHabitDetail:sender:" id="J57-pl-6un"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -192,7 +192,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="EXl-W7-tla"/>
                     <connections>
                         <outlet property="categoryLabel" destination="mg6-7Z-yBM" id="6mf-7D-af5"/>
-                        <outlet property="collectionView" destination="kPg-dg-Viw" id="jWP-er-5Yr"/>
+                        <outlet property="collectionView" destination="Svt-c1-ZhP" id="fIj-lU-SMi"/>
                         <outlet property="infoLabel" destination="pOn-KP-1UD" id="Bgd-Ak-Ih8"/>
                         <outlet property="nameLabel" destination="HIi-2k-zOv" id="PCe-nE-Weq"/>
                     </connections>

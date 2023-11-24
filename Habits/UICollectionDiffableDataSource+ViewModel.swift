@@ -19,6 +19,8 @@ extension UICollectionViewDiffableDataSource {
             guard let sectionItems = itemsBySection[sectionID], sectionItems.count > 0 || sectionRetainedIfEmpty.contains(sectionID) else { continue }
             snapshot.appendSections([sectionID])
             snapshot.appendItems(sectionItems, toSection: sectionID)
+            // Force all items to reload
+            snapshot.reloadItems(sectionItems)
         }
         
         self.apply(snapshot, animatingDifferences: animatingDifferences)

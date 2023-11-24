@@ -9,7 +9,7 @@ import Foundation
 
 struct HabitStatistics {
     let habit: Habit
-    let userCount: [UserCount]
+    let userCounts: [UserCount]
 }
 
 extension HabitStatistics: Codable { }
