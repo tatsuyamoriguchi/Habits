@@ -93,7 +93,6 @@ class UserDetailViewController: UIViewController {
 
         // Register a header view
         collectionView.register(NamedSectionHeaderView.self, forSupplementaryViewOfKind: SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier)
-        //"SectionHeader", withReuseIdentifier: "HeaderView")
         
         // Set up data source and collection view and call the update() method to populate your data source
         dataSource = createDataSource()
@@ -219,14 +218,11 @@ class UserDetailViewController: UIViewController {
             } else {
                 section = .category(habitCount.habit.category)
             }
-            
             partial[section, default: []].append(habitCount)
         }
         itemsBySection = itemsBySection.mapValues { $0.sorted() }
         let sectionIDs = itemsBySection.keys.sorted()
         
         dataSource.applySnapshotUsing(sectionIDs: sectionIDs, itemsBySection: itemsBySection)
-        
     }
-
 }

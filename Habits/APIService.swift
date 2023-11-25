@@ -63,5 +63,5 @@ struct HabitLeadStatisticsRequest: APIRequest {
     typealias Response = UserStatistics
     
     var userID: String
-    var path: String { "/userLeadStats/\(userID)" }
+    var path: String { "/userLeadingStats/\(userID)" }
 }

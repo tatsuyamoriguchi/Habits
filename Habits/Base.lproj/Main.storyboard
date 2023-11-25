@@ -216,7 +216,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="118"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pvn-mP-OKu">
-                                                <rect key="frame" x="0.0" y="2" width="118" height="114.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="2" width="118" height="114.66666666666667"/>
                                                 <color key="tintColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pvn-mP-OKu" secondAttribute="height" multiplier="1:1" id="aJs-VR-fiA"/>
@@ -255,7 +255,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <size key="customSize" width="393" height="44"/>
                                     </collectionViewCell>
                                 </cells>
@@ -446,9 +445,6 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
