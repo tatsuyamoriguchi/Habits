@@ -124,11 +124,12 @@ class UserCollectionViewController: UICollectionViewController {
     }
     
     
-    
-    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (elements) -> UIMenu? in
             
-            guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return nil }
+            guard let item = self.dataSource.itemIdentifier(for: indexPath) else {
+                print("hello")
+                return nil }
             
             let favoriteToggle = UIAction(title: item.isFollowed ? "Unfollow" : "Follow") { (action) in
                 Settings.shared.toggleFollowed(user: item.user)
