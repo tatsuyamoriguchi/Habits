@@ -71,6 +71,9 @@ class UserDetailViewController: UIViewController {
     // To display the habits that the user leads in a section at the top of the collection view, followed by sections for each category for the remaining habits.
     // Use HabitCount as the view model type for items in the collection view, since the properties of HabitCount map directly to the data you need to display in your cells, The model contains both sets of statistics.
     
+    // Set uptimed API polling for this detail screen.
+    var updateTimer: Timer?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +89,23 @@ class UserDetailViewController: UIViewController {
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        update()
+        updateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.update()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        updateTimer?.invalidate()
+        updateTimer = nil
+    }
+                                           
 
     func update() {
         userStatisticsRequestTask?.cancel()
