@@ -49,7 +49,7 @@ class UserCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         // Register cell classes
-        self.collectionView!.register(UICollectionViewListCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+      //  self.collectionView!.register(UICollectionViewListCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
@@ -146,9 +146,8 @@ class UserCollectionViewController: UICollectionViewController {
 //        return UserDetailViewController(coder: coder, user: item.user)
 //    }
 
-    @IBSegueAction func showUserDetail(_ coder: NSCoder, sender:  UICollectionViewCell?) -> UIViewController? {
-        guard let cell = sender, let indexPath = collectionView.indexPath(for: cell), let item = dataSource.itemIdentifier(for: indexPath) else { return nil }
+    @IBSegueAction func showUserDetail(_ coder: NSCoder, sender: UICollectionViewCell?) -> UserDetailViewController? {
+        guard let cell = sender, let indexPath = collectionView.indexPath(for: cell), let item = dataSource.itemIdentifier(for: indexPath) else { return nil   }
         return UserDetailViewController(coder: coder, user: item.user)
     }
-    
 }
