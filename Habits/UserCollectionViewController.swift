@@ -12,7 +12,7 @@ class UserCollectionViewController: UICollectionViewController {
     var usersRequestTask: Task<Void, Never>? = nil
     deinit { usersRequestTask?.cancel() }
     //    While you're there, typealias your data source type, create your model type, and add declarations for the data source and model properties.
-    typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section,ViewModel.Item>
+    typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section, ViewModel.Item>
     
     enum ViewModel {
         typealias Section = Int
