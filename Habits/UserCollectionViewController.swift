@@ -7,13 +7,13 @@
 import UIKit
 private let reuseIdentifier = "User"
 class UserCollectionViewController: UICollectionViewController {
-
+    
     // Cancel the task at the top of the class.
     var usersRequestTask: Task<Void, Never>? = nil
     deinit { usersRequestTask?.cancel() }
     //    While you're there, typealias your data source type, create your model type, and add declarations for the data source and model properties.
     typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section,ViewModel.Item>
-
+    
     enum ViewModel {
         typealias Section = Int
         
@@ -30,7 +30,7 @@ class UserCollectionViewController: UICollectionViewController {
             }
         }
     }
-
+    
     struct Model {
         var usersByID = [String:User]()
         var followedUsers: [User] {
@@ -39,18 +39,18 @@ class UserCollectionViewController: UICollectionViewController {
             }.values)
         }
     }
-
+    
     var dataSource: DataSourceType!
     var model = Model()
     //    While you could also just typealias Item to User, you're not maintaining a separate section for followed users in this screen as you did for habits. If you might later want to visually distinguish between followed and unfollowed users, you should include that information in the view model as part of the Item.
     //    Note that you explicitly implemented hash(into:) and ==(_:_:) for the Item struct. (The free implementations of those two methods would have used both properties of Item in their calculations.) You want to make sure that, from the perspective of the collection view's data source, the identity of a user doesn't change when their followed status changes. If it did, your collection view would unnecessarily remove and add a cell.
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Register cell classes
         self.collectionView!.register(UICollectionViewListCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
@@ -59,7 +59,7 @@ class UserCollectionViewController: UICollectionViewController {
         update()
         
     }
-
+    
     // Dequeue and configure a cell with a user's name
     func createDataSource() -> DataSourceType {
         let dataSource = DataSourceType(collectionView: collectionView) {
@@ -95,8 +95,8 @@ class UserCollectionViewController: UICollectionViewController {
         
         return UICollectionViewCompositionalLayout(section: section)
     }
-
-
+    
+    
     // To fetch users
     func update() {
         usersRequestTask?.cancel()
@@ -139,10 +139,16 @@ class UserCollectionViewController: UICollectionViewController {
         return config
     }
     
-    @IBSegueAction func showUserDetail(_ coder: NSCoder, sender: UICollectionViewCell?) -> UserDetailViewController? {
-        guard let cell = sender, let indexPath = collectionView.indexPath(for: cell), let item = dataSource.itemIdentifier(for: indexPath) else {
-            return nil
-        }
+//    @IBSegueAction func showUserDetail(_ coder: NSCoder, sender: UICollectionViewCell?) -> UserDetailViewController? {
+//        guard let cell = sender, let indexPath = collectionView.indexPath(for: cell), let item = dataSource.itemIdentifier(for: indexPath) else {
+//            return nil
+//        }
+//        return UserDetailViewController(coder: coder, user: item.user)
+//    }
+
+    @IBSegueAction func showUserDetail(_ coder: NSCoder, sender:  UICollectionViewCell?) -> UIViewController? {
+        guard let cell = sender, let indexPath = collectionView.indexPath(for: cell), let item = dataSource.itemIdentifier(for: indexPath) else { return nil }
         return UserDetailViewController(coder: coder, user: item.user)
     }
+    
 }

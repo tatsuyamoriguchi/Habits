@@ -210,7 +210,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D07-up-YfI">
-                                <rect key="frame" x="16" y="123" width="361" height="156"/>
+                                <rect key="frame" x="16" y="79" width="361" height="156"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KhP-TY-rv2">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="118"/>
@@ -223,7 +223,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtb-k7-nVt">
-                                                <rect key="frame" x="138" y="38.666666666666657" width="223" height="40.666666666666657"/>
+                                                <rect key="frame" x="138" y="38.666666666666671" width="223" height="40.666666666666671"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -239,7 +239,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ChC-kE-oUc">
-                                <rect key="frame" x="0.0" y="299" width="393" height="470"/>
+                                <rect key="frame" x="0.0" y="255" width="393" height="563"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rbY-wG-CB3">
                                     <size key="itemSize" width="393" height="109"/>
@@ -285,6 +285,22 @@
             </objects>
             <point key="canvasLocation" x="1454.1984732824426" y="556.33802816901414"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="uFk-Xs-mXi">
+            <objects>
+                <viewController id="EhS-GY-ZF1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yrc-q8-xmy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2an-Hr-lhB"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3Io-Kg-Sen"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U30-61-bj9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2545" y="576"/>
+        </scene>
         <!--People-->
         <scene sceneID="HQq-5B-jKc">
             <objects>
@@ -326,7 +342,7 @@
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="ZA7-4P-F4A" kind="show" id="yku-p0-mKi"/>
+                                    <segue destination="EhS-GY-ZF1" kind="show" destinationCreationSelector="showUserDetail:sender:" id="hiq-Vd-gPM"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -436,6 +452,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
