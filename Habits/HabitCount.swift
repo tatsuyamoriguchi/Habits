@@ -27,7 +27,7 @@ extension HabitCount: Hashable {
 
 extension HabitCount: Comparable {
     static func < (lhs: HabitCount, rhs: HabitCount) -> Bool {
-        return lhs.count < rhs.count
+        return lhs.habit < rhs.habit
         
     }
 }

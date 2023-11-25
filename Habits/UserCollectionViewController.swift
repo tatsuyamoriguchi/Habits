@@ -128,7 +128,6 @@ class UserCollectionViewController: UICollectionViewController {
         let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (elements) -> UIMenu? in
             
             guard let item = self.dataSource.itemIdentifier(for: indexPath) else {
-                print("hello")
                 return nil }
             
             let favoriteToggle = UIAction(title: item.isFollowed ? "Unfollow" : "Follow") { (action) in

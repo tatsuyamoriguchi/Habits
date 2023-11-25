@@ -52,6 +52,7 @@ struct UserStatisticsRequest: APIRequest {
     var queryItems: [URLQueryItem]? {
         if let userIDs = userIDs {
             return [URLQueryItem(name: "ids", value: userIDs.joined(separator: ","))]
+            
         } else {
             return nil
         }

@@ -9,15 +9,16 @@ import UIKit
 
 class HabitDetailViewController: UIViewController {
     
-    // Keep track of async tasks so they can be cancelled when appripriate
-    var habitStatisticsRequestTask: Task<Void, Never>? = nil
-    deinit { habitStatisticsRequestTask?.cancel() }
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     
+    // Keep track of async tasks so they can be cancelled when appripriate
+    var habitStatisticsRequestTask: Task<Void, Never>? = nil
+    deinit { habitStatisticsRequestTask?.cancel() }
+
     var habit: Habit!
     
     required init?(coder: NSCoder) {

@@ -28,7 +28,7 @@ class UserDetailViewController: UIViewController {
     var user: User!
     
     // Enable Segue action from the habit collection view controller
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented.")
     }
     
@@ -80,16 +80,21 @@ class UserDetailViewController: UIViewController {
         
         userNameLabel.text = user.name
         bioLabel.text = user.bio
+        update()
 
         // Register a header view
-        collectionView.register(NamedSectionHeaderView.self, forSupplementaryViewOfKind: SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier)
+        collectionView.register(NamedSectionHeaderView.self, forSupplementaryViewOfKind: "SectionHeader", withReuseIdentifier: "HeaderView")
+        //SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier)
         
         // Set up data source and collection view and call the update() method to populate your data source
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
+        
+        
     }
     
+    // start and stop the periodic updates
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -135,7 +140,8 @@ class UserDetailViewController: UIViewController {
     }
     
     func updateCollectionView() {
-        guard let userStatistics = model.userStats, let leadingStatistics = model.leadingStats else { return }
+        guard let userStatistics = model.userStats, let leadingStatistics = model.leadingStats else {
+            return }
         var itemsBySection = userStatistics.habitCounts.reduce(into: [ViewModel.Section: [ViewModel.Item]]()) { partial, habitCount in
             let section: ViewModel.Section
             
@@ -160,7 +166,7 @@ class UserDetailViewController: UIViewController {
     func createDataSource() -> DataSourceType {
         let dataSource = DataSourceType(collectionView: collectionView) { (collectionView, indexPath, habitStat) -> UICollectionViewCell?  in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HabitCount", for: indexPath) as! UICollectionViewListCell
-            
+            print("habitStat - \(habitStat)")
             var content = UIListContentConfiguration.subtitleCell()
             content.text = habitStat.habit.name
             content.secondaryText = "\(habitStat.count)"

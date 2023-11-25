@@ -16,8 +16,8 @@ protocol APIRequest {
 }
 
 extension APIRequest {
-    var host: String { "localhost" }
-//    var host: String { "192.168.1.15"}
+//    var host: String { "localhost" }
+    var host: String { "127.0.0.1"}
     var port: Int { 8080 }
 }
 extension APIRequest {
