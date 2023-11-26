@@ -99,6 +99,18 @@ class UserDetailViewController: UIViewController {
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
         
+        // In UserDetailViewController, add an image request to viewDidLoad()
+        // it’s sufficient to send the request once, since you can assume user profile
+        // image will change rarely.
+        // No need to cancel the imageRequestTask before issuing it in this case, but you
+        // will still capture a reference to the task so it can be cancelled in deninit.
+        imageRequestTask = Task {
+            if let image = try? await ImageRequest(imageID: user.id).send() {
+                self.profileImageView.image = image
+            }
+            imageRequestTask = nil
+        }
+
         update()
         
         

@@ -5,7 +5,7 @@
 //  Created by Tatsuya Moriguchi on 11/20/23.
 //
 
-import Foundation
+import UIKit
 
 protocol APIRequest {
     associatedtype Response
@@ -60,5 +60,28 @@ extension APIRequest where Response: Decodable {
         let decoded = try decoder.decode(Response.self, from: data)
         
         return decoded
+    }
+}
+
+// Update APIRequest with a new protocol extension specifically for fetching images.
+// Replace import Foundation with import UIKit to use UIImage in your code.
+// Add a new protocol extension with a new send(_:) method to handle images.
+// Also degine a new error type to handle the cases of bad image data and missing image.
+//
+enum ImageRequestError: Error {
+    case couldNotInitializeFromData
+    case imageDataMissing
+}
+
+extension APIRequest where Response == UIImage {
+    func send() async throws -> UIImage {
+        let (data, response) = try await URLSession.shared.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { throw ImageRequestError.imageDataMissing }
+
+        guard let image = UIImage(data: data) else {
+            throw ImageRequestError.couldNotInitializeFromData
+        }
+        return image
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Tatsuya Moriguchi on 11/20/23.
 //
 
-import Foundation
+import UIKit
 
 struct HabitRequest: APIRequest {
     typealias Response = [String: Habit]
@@ -64,4 +64,11 @@ struct HabitLeadStatisticsRequest: APIRequest {
     
     var userID: String
     var path: String { "/userLeadingStats/\(userID)" }
+}
+
+// Replace with import UIKit then add the followin codeto define a new struct ImageRequest
+struct ImageRequest: APIRequest {
+    typealias Response = UIImage
+    var imageID: String
+    var path: String { "/images/" + imageID }
 }
