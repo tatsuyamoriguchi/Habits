@@ -81,5 +81,7 @@ struct Settings {
         followedUserIDs = updated
     }
     
+    let currentUser = User(id: "activeUser", name: "Brian Moriguchi", color: nil, bio: "Love coffee, noodle, baseball, Jazz and Funk music, history, Art Deco, Stanley Kubric films, detective stories, Sumo, traditional Japanese culture, cookng, walking and swimming. iOS dev hobbist who has extensive experiences in management, business, software localization engineering, project management, software quality engineering, information security management, accounting, taxation, labor laws, vendor management, facility management, payroll, recruiting, and client relations")
+    
 }
 
