@@ -85,3 +85,10 @@ extension APIRequest where Response == UIImage {
         return image
     }
 }
+
+extension APIRequest {
+    func send() async throws -> Void {
+        let (_, response) = try await URLSession.shared.data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { throw APIRequestError.requestFailed }
+    }
+}

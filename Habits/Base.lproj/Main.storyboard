@@ -295,6 +295,7 @@
                         <viewLayoutGuide key="safeArea" id="qkc-7Y-49W"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Erg-8Z-4Wy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dcf-4R-vEO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -396,6 +397,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="H3X-za-VGX" kind="show" id="Tf4-KD-hMi"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

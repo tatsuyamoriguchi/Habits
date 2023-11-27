@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C3D4B5D2B111F470074A646 /* UserStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D4B5C2B111F470074A646 /* UserStatistics.swift */; };
 		8C3D4B5F2B111FE70074A646 /* HabitCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D4B5E2B111FE70074A646 /* HabitCount.swift */; };
+		8C3D4B632B1423720074A646 /* LoggedHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D4B622B1423720074A646 /* LoggedHabit.swift */; };
 		8CB708342B0A992D00F2262C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB708332B0A992D00F2262C /* AppDelegate.swift */; };
 		8CB708362B0A992D00F2262C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB708352B0A992D00F2262C /* SceneDelegate.swift */; };
 		8CB7083B2B0A992D00F2262C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB708392B0A992D00F2262C /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		8C3D4B5C2B111F470074A646 /* UserStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatistics.swift; sourceTree = "<group>"; };
 		8C3D4B5E2B111FE70074A646 /* HabitCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCount.swift; sourceTree = "<group>"; };
+		8C3D4B622B1423720074A646 /* LoggedHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedHabit.swift; sourceTree = "<group>"; };
 		8CB708302B0A992D00F2262C /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB708332B0A992D00F2262C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CB708352B0A992D00F2262C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				8CB708512B0BD7D500F2262C /* UserDetailViewController.swift */,
 				8C3D4B5C2B111F470074A646 /* UserStatistics.swift */,
 				8CB7084D2B0BD61700F2262C /* LogHabitCollectionViewController.swift */,
+				8C3D4B622B1423720074A646 /* LoggedHabit.swift */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				8CB708342B0A992D00F2262C /* AppDelegate.swift in Sources */,
 				8CB7084E2B0BD61700F2262C /* LogHabitCollectionViewController.swift in Sources */,
 				8CD15DE72B0EEFA6003B0F52 /* NamedSectionHeaderView.swift in Sources */,
+				8C3D4B632B1423720074A646 /* LoggedHabit.swift in Sources */,
 				8C3D4B5D2B111F470074A646 /* UserStatistics.swift in Sources */,
 				8CB708582B0BE3BC00F2262C /* APIRequest.swift in Sources */,
 				8CE9AF682B1003C700177E12 /* HabitStatistics.swift in Sources */,
