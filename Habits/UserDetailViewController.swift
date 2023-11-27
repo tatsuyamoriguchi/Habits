@@ -140,7 +140,6 @@ class UserDetailViewController: UIViewController {
     func createDataSource() -> DataSourceType {
         let dataSource = DataSourceType(collectionView: collectionView) { (collectionView, indexPath, habitStat) -> UICollectionViewCell?  in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HabitCount", for: indexPath) as! UICollectionViewListCell
-            print("habitStat - \(habitStat)")
             var content = UIListContentConfiguration.subtitleCell()
             content.text = habitStat.habit.name
             content.secondaryText = "\(habitStat.count)"

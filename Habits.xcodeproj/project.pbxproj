@@ -103,7 +103,6 @@
 				8CB7085B2B0BF61F00F2262C /* Category.swift */,
 				8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */,
 				8CB708472B0BD5DD00F2262C /* HomeCollectionViewController.swift */,
-				8CB7084D2B0BD61700F2262C /* LogHabitCollectionViewController.swift */,
 				8CB708532B0BDD2600F2262C /* Habit.swift */,
 				8CB708492B0BD5F400F2262C /* HabitCollectionViewController.swift */,
 				8CB7084F2B0BD7C400F2262C /* HabitDetailViewController.swift */,
@@ -114,6 +113,7 @@
 				8CB7084B2B0BD60700F2262C /* UserCollectionViewController.swift */,
 				8CB708512B0BD7D500F2262C /* UserDetailViewController.swift */,
 				8C3D4B5C2B111F470074A646 /* UserStatistics.swift */,
+				8CB7084D2B0BD61700F2262C /* LogHabitCollectionViewController.swift */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
