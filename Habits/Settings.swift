@@ -84,4 +84,3 @@ struct Settings {
     let currentUser = User(id: "user41", name: "Brian Moriguchi", color: nil, bio: nil)
     
 }
-
