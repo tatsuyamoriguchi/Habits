@@ -10,7 +10,7 @@ import UIKit
 struct CombinedStatisticsRequet: APIRequest {
     typealias Response = CombinedStatistics
     
-    var path: String { "/comobinedStats"}
+    var path: String { "/combinedStats"}
 }
 
 struct HabitRequest: APIRequest {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "leaderboardHabit"
+private let reuseIdentifier = "LeaderboardHabit"
 
 class HomeCollectionViewController: UICollectionViewController {
     
@@ -98,6 +98,8 @@ class HomeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        update()
+        
         dataSource = createDateSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
@@ -120,7 +122,7 @@ class HomeCollectionViewController: UICollectionViewController {
         }
         
         
-        // Register cell classes
+//         Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         
@@ -151,7 +153,7 @@ class HomeCollectionViewController: UICollectionViewController {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LeaderboardHabit", for: indexPath) as! LeaderBoardHabitCollectionViewCell
                 cell.habitNameLabel.text = name
                 cell.leaderLabel.text = leadingUserRanking
-                cell.secondaryaLabel.text = secondaryUserRanking
+                cell.secondaryLabel.text = secondaryUserRanking
                 print("1item: \(item)")
 
                 return cell
@@ -167,6 +169,7 @@ class HomeCollectionViewController: UICollectionViewController {
     
     func createLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
+            print("createLayout() was executed")
             switch self.dataSource.snapshot().sectionIdentifiers[sectionIndex] {
             case .leaderboard:
                 let leaderboardItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.3))
@@ -191,12 +194,14 @@ class HomeCollectionViewController: UICollectionViewController {
     }
     
     func update() {
+        
         combinedStatisticsRequestTask?.cancel()
         combinedStatisticsRequestTask = Task {
             if let combinedStatistics = try? await CombinedStatisticsRequet().send() {
                 self.model.userStatistics = combinedStatistics.userStatistics
                 self.model.habitStatistics = combinedStatistics.habitStatistics
             } else {
+                print("statistics are nil")
                 self.model.userStatistics = []
                 self.model.habitStatistics = []
             }

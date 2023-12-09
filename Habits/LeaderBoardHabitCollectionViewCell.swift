@@ -10,6 +10,6 @@ import UIKit
 class LeaderBoardHabitCollectionViewCell: UICollectionViewCell {
     @IBOutlet var habitNameLabel: UILabel!
     @IBOutlet var leaderLabel: UILabel!
-    @IBOutlet var secondaryaLabel: UILabel!
+    @IBOutlet var secondaryLabel: UILabel!
     
 }
