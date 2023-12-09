@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8C35B5B62B192F8C0030ABEF /* LeaderBoardHabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35B5B52B192F8C0030ABEF /* LeaderBoardHabitCollectionViewCell.swift */; };
+		8C35B5B82B1D21BA0030ABEF /* FollowedUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35B5B72B1D21BA0030ABEF /* FollowedUserCollectionViewCell.swift */; };
+		8C35B5BA2B23A7110030ABEF /* CombinedStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35B5B92B23A7110030ABEF /* CombinedStatistics.swift */; };
 		8C3D4B5D2B111F470074A646 /* UserStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D4B5C2B111F470074A646 /* UserStatistics.swift */; };
 		8C3D4B5F2B111FE70074A646 /* HabitCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D4B5E2B111FE70074A646 /* HabitCount.swift */; };
 		8C3D4B632B1423720074A646 /* LoggedHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D4B622B1423720074A646 /* LoggedHabit.swift */; };
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		8C35B5B52B192F8C0030ABEF /* LeaderBoardHabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardHabitCollectionViewCell.swift; sourceTree = "<group>"; };
+		8C35B5B72B1D21BA0030ABEF /* FollowedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowedUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		8C35B5B92B23A7110030ABEF /* CombinedStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedStatistics.swift; sourceTree = "<group>"; };
 		8C3D4B5C2B111F470074A646 /* UserStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatistics.swift; sourceTree = "<group>"; };
 		8C3D4B5E2B111FE70074A646 /* HabitCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCount.swift; sourceTree = "<group>"; };
 		8C3D4B622B1423720074A646 /* LoggedHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedHabit.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				8CB7084D2B0BD61700F2262C /* LogHabitCollectionViewController.swift */,
 				8C3D4B622B1423720074A646 /* LoggedHabit.swift */,
 				8C35B5B52B192F8C0030ABEF /* LeaderBoardHabitCollectionViewCell.swift */,
+				8C35B5B72B1D21BA0030ABEF /* FollowedUserCollectionViewCell.swift */,
+				8C35B5B92B23A7110030ABEF /* CombinedStatistics.swift */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -217,6 +223,8 @@
 				8CB7085A2B0BF36200F2262C /* APIService.swift in Sources */,
 				8CE9AF6A2B10057100177E12 /* UserCount.swift in Sources */,
 				8CB708362B0A992D00F2262C /* SceneDelegate.swift in Sources */,
+				8C35B5B82B1D21BA0030ABEF /* FollowedUserCollectionViewCell.swift in Sources */,
+				8C35B5BA2B23A7110030ABEF /* CombinedStatistics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,7 +33,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3Rf-9o-hmM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="idQ-Py-hpI">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -87,13 +87,42 @@
                                     <outlet property="secondaryaLabel" destination="TZj-Qe-PGa" id="3xX-3j-uZS"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qoU-bt-9SP">
-                                <rect key="frame" x="132.66666666666666" y="138" width="128" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FollowedUser" id="qoU-bt-9SP" customClass="FollowedUserCollectionViewCell" customModule="Habits" customModuleProvider="target">
+                                <rect key="frame" x="35.666666666666664" y="138" width="322" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="32K-mK-Gfc">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="322" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuw-BV-rrc">
+                                            <rect key="frame" x="8" y="8" width="88.333333333333329" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ci7-ej-uIL">
+                                            <rect key="frame" x="32" y="45" width="282" height="75"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Ci7-ej-uIL" firstAttribute="top" secondItem="nuw-BV-rrc" secondAttribute="bottom" constant="16" id="JFQ-PZ-JfW"/>
+                                        <constraint firstItem="Ci7-ej-uIL" firstAttribute="leading" secondItem="nuw-BV-rrc" secondAttribute="leading" constant="24" id="P3N-Mz-vKn"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ci7-ej-uIL" secondAttribute="bottom" constant="8" id="RSk-Vi-E2B"/>
+                                        <constraint firstItem="nuw-BV-rrc" firstAttribute="top" secondItem="32K-mK-Gfc" secondAttribute="top" constant="8" id="Yib-Mh-kwU"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ci7-ej-uIL" secondAttribute="trailing" constant="8" id="m22-K8-hur"/>
+                                        <constraint firstItem="nuw-BV-rrc" firstAttribute="leading" secondItem="32K-mK-Gfc" secondAttribute="leading" constant="8" id="ygh-mc-wGk"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nuw-BV-rrc" secondAttribute="trailing" constant="8" id="zif-jJ-bOS"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <size key="customSize" width="322" height="128"/>
+                                <connections>
+                                    <outlet property="primaryTextLabel" destination="nuw-BV-rrc" id="5xz-Jb-Fdn"/>
+                                    <outlet property="secondaryTextLabel" destination="Ci7-ej-uIL" id="l6w-xS-wc5"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -101,7 +130,7 @@
                             <outlet property="delegate" destination="j4O-o4-vdW" id="lCn-98-mfm"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="GBm-VY-opn"/>
+                    <navigationItem key="navigationItem" id="GBm-VY-opn" userLabel="Home"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7t-iX-lnt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -481,6 +510,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
