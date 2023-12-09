@@ -7,7 +7,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "leaderboardHabit"
 
 class HomeCollectionViewController: UICollectionViewController {
     
@@ -98,8 +97,6 @@ class HomeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         dataSource = createDateSource()
         collectionView.dataSource = dataSource
@@ -150,12 +147,9 @@ class HomeCollectionViewController: UICollectionViewController {
                 cell.habitNameLabel.text = name
                 cell.leaderLabel.text = leadingUserRanking
                 cell.secondaryLabel.text = secondaryUserRanking
-                print("1item: \(item)")
 
                 return cell
             default:
-                print("2item: \(item)")
-
                 return nil
             }
         }
@@ -165,7 +159,6 @@ class HomeCollectionViewController: UICollectionViewController {
     
     func createLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
-            print("createLayout() was executed")
             switch self.dataSource.snapshot().sectionIdentifiers[sectionIndex] {
             case .leaderboard:
                 let leaderboardItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.3))
@@ -197,7 +190,6 @@ class HomeCollectionViewController: UICollectionViewController {
                 self.model.userStatistics = combinedStatistics.userStatistics
                 self.model.habitStatistics = combinedStatistics.habitStatistics
             } else {
-                print("statistics are nil")
                 self.model.userStatistics = []
                 self.model.habitStatistics = []
             }
