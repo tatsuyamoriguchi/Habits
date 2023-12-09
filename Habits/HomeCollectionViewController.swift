@@ -7,7 +7,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "LeaderboardHabit"
+private let reuseIdentifier = "leaderboardHabit"
 
 class HomeCollectionViewController: UICollectionViewController {
     
@@ -98,7 +98,8 @@ class HomeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        update()
+        // Register cell classes
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         dataSource = createDateSource()
         collectionView.dataSource = dataSource
@@ -121,12 +122,7 @@ class HomeCollectionViewController: UICollectionViewController {
             habitRequestTask = nil
         }
         
-        
-//         Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        
-    }
+}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
