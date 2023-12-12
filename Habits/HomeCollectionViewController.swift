@@ -7,6 +7,76 @@
 
 import UIKit
 
+class SectionBackgroundView: UICollectionReusableView {
+    override func didMoveToSuperview() {
+        backgroundColor = .systemGray6
+    
+    }
+}
+
+// Distinguish the two different methods for registering supplementary views.
+// Register supplementary views with the collection view,
+// Register decoration views that you create in compositional layouts witht the layout itself.
+enum SuuplementaryItemType {
+    case collectionSupplementaryView
+    case layoutDecorationView
+}
+
+protocol SupplementaryItem {
+    associatedtype ViewClass: UICollectionReusableView
+    
+    var itemType: SuuplementaryItemType { get }
+    
+    var reuseIdentifier: String { get }
+    var viewKind: String { get }
+    var viewClass: ViewClass.Type { get }
+}
+
+extension SupplementaryItem {
+    func register(on collectionView: UICollectionView) {
+        switch itemType {
+        case .collectionSupplementaryView:
+            collectionView.register(ViewClass.self, forSupplementaryViewOfKind: viewKind, withReuseIdentifier: reuseIdentifier)
+        case .layoutDecorationView:
+            collectionView.collectionViewLayout.register(viewClass.self, forDecorationViewOfKind: viewKind)
+        }
+    }
+}
+
+enum SupplementaryView: String, CaseIterable, SupplementaryItem {
+    case leaderboardSectionHeader
+    case leaderboardBackground
+    case followedUsersSectionHeader
+    
+    var reuseIdentifier: String {
+        return rawValue
+    }
+    
+    var viewKind: String {
+        return rawValue
+    }
+    
+    var viewClass: UICollectionReusableView.Type {
+        switch self {
+        case .leaderboardBackground:
+            return SectionBackgroundView.self
+        default:
+            return NamedSectionHeaderView.self
+            
+        }
+    }
+    
+    var itemType: SuuplementaryItemType {
+        switch self {
+        case .leaderboardBackground:
+            return .layoutDecorationView
+        default:
+            return .collectionSupplementaryView
+        }
+    }
+}
+
+
 
 class HomeCollectionViewController: UICollectionViewController {
     
@@ -98,7 +168,7 @@ class HomeCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         
-        dataSource = createDateSource()
+        dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
         userRequestTask = Task {
@@ -119,6 +189,9 @@ class HomeCollectionViewController: UICollectionViewController {
             habitRequestTask = nil
         }
         
+        for supplementaryView in SupplementaryView.allCases {
+            supplementaryView.register(on: collectionView)
+        }
 }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -137,7 +210,7 @@ class HomeCollectionViewController: UICollectionViewController {
         updateTimer = nil
     }
 
-    func createDateSource() -> DataSourceType {
+    func createDataSource() -> DataSourceType {
 
         let dataSource = DataSourceType(collectionView: collectionView) {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
@@ -153,6 +226,30 @@ class HomeCollectionViewController: UICollectionViewController {
                 cell.primaryTextLabel.text = user.name
                 cell.secondaryTextLabel.text = message
                 return cell
+//            default:
+//                return nil
+            }
+        }
+        
+        dataSource.supplementaryViewProvider = {
+            (collectionView, kind, indexPath) in
+            guard let elementKind = SupplementaryView(rawValue: kind) else { return nil }
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: elementKind.viewKind, withReuseIdentifier: elementKind.reuseIdentifier, for: indexPath)
+            
+            switch elementKind {
+            case .leaderboardSectionHeader:
+                let header = view as! NamedSectionHeaderView
+                header.nameLabel.text = "Leaderboard"
+                header.nameLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+                header.alignLabelToTop()
+                return header
+            case .followedUsersSectionHeader:
+// build error: Could not cast value of type 'UICollectionReusableView' (0x1148a5070) to 'Habits.NamedSectionHeaderView' (0x104c6e458).
+                let header = view as! NamedSectionHeaderView
+                header.nameLabel.text = "Following"
+                header.nameLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+                header.alignLabelToYCenter()
+                return header
             default:
                 return nil
             }
@@ -173,6 +270,16 @@ class HomeCollectionViewController: UICollectionViewController {
                 leaderboardVerticalTrio.interItemSpacing = .fixed(10)
                 
                 let leaderboardSection = NSCollectionLayoutSection(group: leaderboardVerticalTrio)
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(80))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: SupplementaryView.leaderboardSectionHeader.viewKind, alignment: .top)
+                
+                let background = NSCollectionLayoutDecorationItem.background(elementKind: SupplementaryView.leaderboardBackground.viewKind)
+                
+                leaderboardSection.boundarySupplementaryItems = [header]
+                leaderboardSection.decorationItems = [background]
+                leaderboardSection.supplementariesFollowContentInsets = false
+                
                 leaderboardSection.interGroupSpacing = 20
                 
                 leaderboardSection.orthogonalScrollingBehavior = .continuous
@@ -187,6 +294,10 @@ class HomeCollectionViewController: UICollectionViewController {
                 let followedUserGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: followedUserItem, count: 1)
                 
                 let followedUserSection = NSCollectionLayoutSection(group: followedUserGroup)
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(60))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: SupplementaryView.followedUsersSectionHeader.viewKind, alignment: .top)
+                followedUserSection.boundarySupplementaryItems = [header]
                 
                 return followedUserSection
             }
