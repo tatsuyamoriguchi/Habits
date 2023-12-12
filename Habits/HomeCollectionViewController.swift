@@ -17,7 +17,7 @@ class SectionBackgroundView: UICollectionReusableView {
 // Distinguish the two different methods for registering supplementary views.
 // Register supplementary views with the collection view,
 // Register decoration views that you create in compositional layouts witht the layout itself.
-enum SuuplementaryItemType {
+enum SuplementaryItemType {
     case collectionSupplementaryView
     case layoutDecorationView
 }
@@ -25,7 +25,7 @@ enum SuuplementaryItemType {
 protocol SupplementaryItem {
     associatedtype ViewClass: UICollectionReusableView
     
-    var itemType: SuuplementaryItemType { get }
+    var itemType: SuplementaryItemType { get }
     
     var reuseIdentifier: String { get }
     var viewKind: String { get }
@@ -43,38 +43,6 @@ extension SupplementaryItem {
     }
 }
 
-enum SupplementaryView: String, CaseIterable, SupplementaryItem {
-    case leaderboardSectionHeader
-    case leaderboardBackground
-    case followedUsersSectionHeader
-    
-    var reuseIdentifier: String {
-        return rawValue
-    }
-    
-    var viewKind: String {
-        return rawValue
-    }
-    
-    var viewClass: UICollectionReusableView.Type {
-        switch self {
-        case .leaderboardBackground:
-            return SectionBackgroundView.self
-        default:
-            return NamedSectionHeaderView.self
-            
-        }
-    }
-    
-    var itemType: SuuplementaryItemType {
-        switch self {
-        case .leaderboardBackground:
-            return .layoutDecorationView
-        default:
-            return .collectionSupplementaryView
-        }
-    }
-}
 
 
 
@@ -90,6 +58,40 @@ class HomeCollectionViewController: UICollectionViewController {
         habitRequestTask?.cancel()
         combinedStatisticsRequestTask?.cancel()
     }
+    
+    enum SupplementaryView: String, CaseIterable, SupplementaryItem {
+        case leaderboardSectionHeader
+        case leaderboardBackground
+        case followedUsersSectionHeader
+        
+        var reuseIdentifier: String {
+            return rawValue
+        }
+        
+        var viewKind: String {
+            return rawValue
+        }
+        
+        var viewClass: UICollectionReusableView.Type {
+            switch self {
+            case .leaderboardBackground:
+                return SectionBackgroundView.self
+            default:
+                return NamedSectionHeaderView.self
+                
+            }
+        }
+        
+        var itemType: SuplementaryItemType {
+            switch self {
+            case .leaderboardBackground:
+                return .layoutDecorationView
+            default:
+                return .collectionSupplementaryView
+            }
+        }
+    }
+
  
     typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section, ViewModel.Item>
     
@@ -171,6 +173,13 @@ class HomeCollectionViewController: UICollectionViewController {
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
+        
+        
+        for supplementaryView in SupplementaryView.allCases {
+            supplementaryView.register(on: collectionView)
+        }
+
+        
         userRequestTask = Task {
             if let users = try? await UserRequest().send() {
                 self.model.usersByID = users
@@ -189,9 +198,6 @@ class HomeCollectionViewController: UICollectionViewController {
             habitRequestTask = nil
         }
         
-        for supplementaryView in SupplementaryView.allCases {
-            supplementaryView.register(on: collectionView)
-        }
 }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -231,8 +237,7 @@ class HomeCollectionViewController: UICollectionViewController {
             }
         }
         
-        dataSource.supplementaryViewProvider = {
-            (collectionView, kind, indexPath) in
+        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
             guard let elementKind = SupplementaryView(rawValue: kind) else { return nil }
             let view = collectionView.dequeueReusableSupplementaryView(ofKind: elementKind.viewKind, withReuseIdentifier: elementKind.reuseIdentifier, for: indexPath)
             

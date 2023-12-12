@@ -9,8 +9,15 @@ import UIKit
 
 class NamedSectionHeaderView: UICollectionReusableView {
     
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = UIFont.boldSystemFont(ofSize: 17)
+        
+        return label
+    }()
+
     var _centerYConstraint: NSLayoutConstraint?
-    
     var centerYConstraint: NSLayoutConstraint {
         if _centerYConstraint == nil {
             _centerYConstraint = nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
@@ -25,24 +32,7 @@ class NamedSectionHeaderView: UICollectionReusableView {
         }
         return _topYConstaint!
     }
-    
-    func alignLabelToTop() {
-        topYConstraint.isActive = true
-        centerYConstraint.isActive = false
-    }
-    
-    func alignLabelToYCenter() {
-        topYConstraint.isActive = false
-        centerYConstraint.isActive = true
-    }
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.font = UIFont.boldSystemFont(ofSize: 17)
         
-        return label
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,13 +50,21 @@ class NamedSectionHeaderView: UICollectionReusableView {
         addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        // Use the new properties by removing the center Y anchor constraint and calling the Y Center alignment toggling method.
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
-        
-        // Use the new properties by removing the center Y anchor constraint and calling the Y Center alignment toggling method.
-        NSLayoutConstraint.activate([nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12), ])
         alignLabelToYCenter()
     }
+    
+    func alignLabelToTop() {
+        topYConstraint.isActive = true
+        centerYConstraint.isActive = false
+    }
+    
+    func alignLabelToYCenter() {
+        topYConstraint.isActive = false
+        centerYConstraint.isActive = true
+    }
+
 }
