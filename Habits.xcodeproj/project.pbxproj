@@ -28,6 +28,7 @@
 		8CB708582B0BE3BC00F2262C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB708572B0BE3BC00F2262C /* APIRequest.swift */; };
 		8CB7085A2B0BF36200F2262C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB708592B0BF36100F2262C /* APIService.swift */; };
 		8CB7085C2B0BF61F00F2262C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7085B2B0BF61F00F2262C /* Category.swift */; };
+		8CD11BCE2B297D6C001F8BBF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD11BCD2B297D6C001F8BBF /* Color.swift */; };
 		8CD15DE32B0D2F8C003B0F52 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE22B0D2F8C003B0F52 /* Settings.swift */; };
 		8CD15DE52B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */; };
 		8CD15DE72B0EEFA6003B0F52 /* NamedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */; };
@@ -60,6 +61,7 @@
 		8CB708572B0BE3BC00F2262C /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		8CB708592B0BF36100F2262C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8CB7085B2B0BF61F00F2262C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8CD11BCD2B297D6C001F8BBF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8CD15DE22B0D2F8C003B0F52 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		8CD15DE42B0D8866003B0F52 /* UICollectionDiffableDataSource+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionDiffableDataSource+ViewModel.swift"; sourceTree = "<group>"; };
 		8CD15DE62B0EEFA6003B0F52 /* NamedSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				8C35B5B52B192F8C0030ABEF /* LeaderBoardHabitCollectionViewCell.swift */,
 				8C35B5B72B1D21BA0030ABEF /* FollowedUserCollectionViewCell.swift */,
 				8C35B5B92B23A7110030ABEF /* CombinedStatistics.swift */,
+				8CD11BCD2B297D6C001F8BBF /* Color.swift */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				8CB708542B0BDD2600F2262C /* Habit.swift in Sources */,
 				8CB7085C2B0BF61F00F2262C /* Category.swift in Sources */,
 				8CB708502B0BD7C400F2262C /* HabitDetailViewController.swift in Sources */,
+				8CD11BCE2B297D6C001F8BBF /* Color.swift in Sources */,
 				8C3D4B5F2B111FE70074A646 /* HabitCount.swift in Sources */,
 				8CB7085A2B0BF36200F2262C /* APIService.swift in Sources */,
 				8CE9AF6A2B10057100177E12 /* UserCount.swift in Sources */,
