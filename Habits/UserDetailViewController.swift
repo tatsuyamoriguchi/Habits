@@ -91,6 +91,8 @@ class UserDetailViewController: UIViewController {
         userNameLabel.text = user.name
         bioLabel.text = user.bio
 
+        view.backgroundColor = user.color?.uiColor ?? .white
+        
         // Register a header view
         collectionView.register(NamedSectionHeaderView.self, forSupplementaryViewOfKind: SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier)
         
