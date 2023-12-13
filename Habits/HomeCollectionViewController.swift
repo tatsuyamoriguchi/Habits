@@ -36,7 +36,7 @@ extension SupplementaryItem {
     func register(on collectionView: UICollectionView) {
         switch itemType {
         case .collectionSupplementaryView:
-            collectionView.register(ViewClass.self, forSupplementaryViewOfKind: viewKind, withReuseIdentifier: reuseIdentifier)
+            collectionView.register(viewClass.self, forSupplementaryViewOfKind: viewKind, withReuseIdentifier: reuseIdentifier)
         case .layoutDecorationView:
             collectionView.collectionViewLayout.register(viewClass.self, forDecorationViewOfKind: viewKind)
         }
@@ -238,6 +238,7 @@ class HomeCollectionViewController: UICollectionViewController {
         }
         
         dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+            
             guard let elementKind = SupplementaryView(rawValue: kind) else { return nil }
             let view = collectionView.dequeueReusableSupplementaryView(ofKind: elementKind.viewKind, withReuseIdentifier: elementKind.reuseIdentifier, for: indexPath)
             
