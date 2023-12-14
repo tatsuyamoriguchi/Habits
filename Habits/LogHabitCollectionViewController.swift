@@ -11,6 +11,24 @@ private let reuseIdentifier = "Cell"
 
 class LogHabitCollectionViewController: HabitCollectionViewController {
     
+    override func configureCell(_ cell: UICollectionViewListCell, withItem item: HabitCollectionViewController.ViewModel.Item) {
+        var content = UIListContentConfiguration.cell()
+        content.text = item.name
+        content.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 11, leading: 8, bottom: 11, trailing: 8)
+        content.textProperties.alignment = .center
+        cell.contentConfiguration = content
+        
+        var backgroundConfiguration = UIBackgroundConfiguration.clear()
+        if Settings.shared.favoriteHabits.contains(item) {
+            backgroundConfiguration.backgroundColor = favoriteHabitColor
+        } else {
+            backgroundConfiguration.backgroundColor = .systemGray6
+        }
+        
+        backgroundConfiguration.cornerRadius = 8
+        cell.backgroundConfiguration = backgroundConfiguration
+    }
+    
     override func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
             if sectionIndex == 0 && self.model.favoriteHabits.count > 0 {

@@ -8,9 +8,11 @@
 import UIKit
 
 private let reuseIdentifier = "Cell"
+let favoriteHabitColor = UIColor(hue: 0.15, saturation: 1, brightness: 0.9, alpha: 1)
 
 class HabitCollectionViewController: UICollectionViewController {
     
+
     // MVVM approach to separate
     typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section, ViewModel.Item>
     
@@ -39,6 +41,17 @@ class HabitCollectionViewController: UICollectionViewController {
                     return true
                 case (_, .favorites):
                     return false
+                 }
+            }
+
+            var sectionColor: UIColor {
+                switch self {
+                case .favorites:
+                    return favoriteHabitColor
+//               case .favorites:
+//                    return UIColor(hue: 0.15, saturation: 1, brightness: 0.9, alpha: 1)
+                case .category(let category):
+                    return category.color.uiColor
                 }
             }
         }
@@ -135,6 +148,12 @@ class HabitCollectionViewController: UICollectionViewController {
     deinit { habitsRequestTask?.cancel() }
     
 
+    func configureCell(_ cell: UICollectionViewListCell, withItem item: HabitCollectionViewController.ViewModel.Item) {
+        var content = cell.defaultContentConfiguration()
+        content.text = item.name
+        cell.contentConfiguration = content
+    }
+
     // Create createDataSource() method to feed data to the collection view.
     // Dequeue and set up UICollectionViewListCell’s according to the contents of the view model item from the snapshot.
     func createDataSource() -> DataSourceType {
@@ -142,24 +161,27 @@ class HabitCollectionViewController: UICollectionViewController {
             (colectionView, indexPath, item) in
             let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "Habit", for: indexPath) as! UICollectionViewListCell
             
-            var content = cell.defaultContentConfiguration()
-            content.text = item.name
-            cell.contentConfiguration = content
+            self.configureCell(cell, withItem: item)
             
             return cell
         }
         
         dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: SectionHeader.kind.identifier, withReuseIdentifier: SectionHeader.reuse.identifier, for: indexPath) as! NamedSectionHeaderView
-            
+
             let section = dataSource.snapshot().sectionIdentifiers[indexPath.section]
+
             switch section {
             case .favorites:
                 header.nameLabel.text = "Favorites"
             case .category(let category):
                 header.nameLabel.text = category.name
             }
+
+            header.backgroundColor = section.sectionColor
+
             return header
+
         }
         return dataSource
     }
