@@ -240,9 +240,14 @@ class HomeCollectionViewController: UICollectionViewController {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowedUser", for: indexPath) as! FollowedUserCollectionViewCell
                 cell.primaryTextLabel.text = user.name
                 cell.secondaryTextLabel.text = message
+                // Hiding or displaying a separator
+                if indexPath.item == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+                    cell.separatorLineView.isHidden = true
+                } else {
+                    cell.separatorLineView.isHidden = false
+                }
+                    
                 return cell
-//            default:
-//                return nil
             }
         }
         

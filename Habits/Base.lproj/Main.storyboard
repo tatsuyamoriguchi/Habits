@@ -94,24 +94,34 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuw-BV-rrc">
-                                            <rect key="frame" x="8" y="8" width="88.333333333333329" height="21"/>
+                                            <rect key="frame" x="8" y="7.9999999999999982" width="88.333333333333329" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ci7-ej-uIL">
-                                            <rect key="frame" x="32" y="45" width="282" height="75"/>
+                                            <rect key="frame" x="32" y="44.333333333333336" width="282" height="74.666666666666657"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIs-TJ-Ibm">
+                                            <rect key="frame" x="0.0" y="127" width="322" height="1"/>
+                                            <color key="backgroundColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="uV0-qc-dao"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="KIs-TJ-Ibm" firstAttribute="centerX" secondItem="32K-mK-Gfc" secondAttribute="centerX" id="0IS-6L-fsB"/>
+                                        <constraint firstItem="KIs-TJ-Ibm" firstAttribute="width" secondItem="32K-mK-Gfc" secondAttribute="width" id="FoV-Pj-6Xa" userLabel="Separator Line View.width = 0.9 x width"/>
+                                        <constraint firstItem="KIs-TJ-Ibm" firstAttribute="top" secondItem="Ci7-ej-uIL" secondAttribute="bottom" constant="8" id="GfW-3k-RSd"/>
                                         <constraint firstItem="Ci7-ej-uIL" firstAttribute="top" secondItem="nuw-BV-rrc" secondAttribute="bottom" constant="16" id="JFQ-PZ-JfW"/>
                                         <constraint firstItem="Ci7-ej-uIL" firstAttribute="leading" secondItem="nuw-BV-rrc" secondAttribute="leading" constant="24" id="P3N-Mz-vKn"/>
-                                        <constraint firstAttribute="bottom" secondItem="Ci7-ej-uIL" secondAttribute="bottom" constant="8" id="RSk-Vi-E2B"/>
                                         <constraint firstItem="nuw-BV-rrc" firstAttribute="top" secondItem="32K-mK-Gfc" secondAttribute="top" constant="8" id="Yib-Mh-kwU"/>
                                         <constraint firstAttribute="trailing" secondItem="Ci7-ej-uIL" secondAttribute="trailing" constant="8" id="m22-K8-hur"/>
+                                        <constraint firstAttribute="bottom" secondItem="KIs-TJ-Ibm" secondAttribute="bottom" id="oeP-S4-clT" userLabel="bottom = Separator Line View.bottom"/>
                                         <constraint firstItem="nuw-BV-rrc" firstAttribute="leading" secondItem="32K-mK-Gfc" secondAttribute="leading" constant="8" id="ygh-mc-wGk"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nuw-BV-rrc" secondAttribute="trailing" constant="8" id="zif-jJ-bOS"/>
                                     </constraints>
@@ -120,6 +130,7 @@
                                 <connections>
                                     <outlet property="primaryTextLabel" destination="nuw-BV-rrc" id="5xz-Jb-Fdn"/>
                                     <outlet property="secondaryTextLabel" destination="Ci7-ej-uIL" id="l6w-xS-wc5"/>
+                                    <outlet property="separatorLineView" destination="KIs-TJ-Ibm" id="5vy-jy-8Ad"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -492,6 +503,9 @@
         <image name="person.2.fill" catalog="system" width="128" height="81"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
