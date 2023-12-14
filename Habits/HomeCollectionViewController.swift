@@ -226,6 +226,15 @@ class HomeCollectionViewController: UICollectionViewController {
                 cell.habitNameLabel.text = name
                 cell.leaderLabel.text = leadingUserRanking
                 cell.secondaryLabel.text = secondaryUserRanking
+                
+                cell.contentView.backgroundColor = favoriteHabitColor.withAlphaComponent(0.75)
+                cell.contentView.layer.cornerRadius = 8
+                cell.layer.shadowRadius = 3
+                cell.layer.shadowColor = UIColor.systemGray3.cgColor
+                cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+                cell.layer.shadowOpacity = 1
+                cell.layer.masksToBounds = false
+                
                 return cell
             case .followedUser(let user, let message):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowedUser", for: indexPath) as! FollowedUserCollectionViewCell
