@@ -135,11 +135,16 @@ class UserCollectionViewController: UICollectionViewController {
             guard let item = self.dataSource.itemIdentifier(for: indexPath) else {
                 return nil }
             
-            let favoriteToggle = UIAction(title: item.isFollowed ? "Unfollow" : "Follow") { (action) in
-                Settings.shared.toggleFollowed(user: item.user)
-                self.updateCollectionView()
+            if item.user.id == HomeCollectionViewController().model.currentUser.id {
+                return UIMenu(title: "This is You! You can't follow yourself.", image: nil, identifier: nil, options: [])
+            } else {
+                
+                let favoriteToggle = UIAction(title: item.isFollowed ? "Unfollow" : "Follow") { (action) in
+                    Settings.shared.toggleFollowed(user: item.user)
+                    self.updateCollectionView()
+                }
+                return UIMenu(title: "", image: nil, identifier: nil, options: [], children: [favoriteToggle])
             }
-            return UIMenu(title: "", image: nil, identifier: nil, options: [], children: [favoriteToggle])
         }
         return config
     }
